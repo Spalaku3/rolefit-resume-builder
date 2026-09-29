@@ -1,0 +1,24 @@
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+data/
+uploads/
+backups/
+private/
+*.db
+*.db-*
+*.sqlite*
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.DS_Store
+Thumbs.db
+*.log
+# Resume exports and backups can contain personal data.
+*.pdf
+*.docx
+*.zip

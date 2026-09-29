@@ -1,0 +1,15 @@
+services:
+  rolefit:
+    build: .
+    ports:
+      - "8000:10000"
+    env_file: .env
+    environment:
+      APP_ENV: development
+      COOKIE_SECURE: "false"
+      DATABASE_URL: sqlite:////app/data/rolefit.db
+    volumes:
+      - rolefit_data:/app/data
+    restart: unless-stopped
+volumes:
+  rolefit_data:

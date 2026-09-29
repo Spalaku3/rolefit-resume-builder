@@ -1,0 +1,25 @@
+# Render Blueprint: free personal-use web service + external persistent DB.
+services:
+  - type: web
+    name: rolefit
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: APP_TIMEZONE
+        value: America/Chicago
+      - key: APP_PASSWORD
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false
+      - key: GROQ_FREE_TIER_CONFIRMED
+        value: "false"
+# Add GROQ_API_KEY / OPENROUTER_API_KEY as secrets in Render Environment.
+# Confirm the Groq free plan before setting GROQ_FREE_TIER_CONFIRMED=true.
